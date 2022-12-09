@@ -34,10 +34,6 @@ form {
 }
 
 #input {
-    height: 28px;
-}
-
-#input {
     width: 200px;
     height: 45px;
     border-radius: 5px;
@@ -72,4 +68,31 @@ form {
 
 .todo {
     width: 70%;
+}
+
+@media only screen and (max-width: 600px) {
+
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .todo {
+        min-width: 100%;
+        max-width: 100%;
+        justify-content: center;
+    }
+
+    #input {
+        min-width: 100%;
+        width: 100%;
+    }
+
+    .submit {
+        min-width: 100%;
+        width: 100%;
+        font-size: small;
+    }
 }
