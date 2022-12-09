@@ -22,20 +22,21 @@ class Checklist {
 
             let taskSpan = document.createElement("span");
             taskSpan.className = "taskSpan";
-            taskSpan.id = i + 1;
+            //taskSpan.id = i + 1;
 
             let list = document.createElement("li");
             list.style.type = "square";
     
             let checkbox = document.createElement("input");
             checkbox.type = "checkbox";
+            checkbox.id = i;
             checkbox.addEventListener("change", () => {
                 setTimeout(() => {
                     let tasks = (JSON.parse(localStorage.getItem("tasksInStorage")));
                     tasks.splice(checkbox.id, 1);
                     this.checklistStore = tasks;
                     localStorage.setItem("tasksInStorage", JSON.stringify(this.checklistStore));
-                    //console.log((document.getElementById).length)
+                    console.log(document.getElementById("todo").childNodes)
                     while (document.getElementById("todo").childNodes.length) {
                         document.getElementById("todo").childNodes[0].remove();
                     }
