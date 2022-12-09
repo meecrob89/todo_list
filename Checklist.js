@@ -19,29 +19,37 @@ class Checklist {
         let TaskFromStorage = JSON.parse(localStorage.getItem("tasksInStorage"));
         
         for (let i = 0; i < this.checklistStore.length; i++) {
-            let span = document.createElement("span");
-            span.className = "span";
-            span.id = i;
-            console.log(span.id);
 
-            let li = document.createElement("li");
-            li.style.type = "square";
+            let taskSpan = document.createElement("span");
+            taskSpan.className = "taskSpan";
+            taskSpan.id = i + 1;
+
+            let list = document.createElement("li");
+            list.style.type = "square";
     
-            let done = document.createElement("input");
-            done.type = "checkbox";
-            done.addEventListener("change", () => {
+            let checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.addEventListener("change", () => {
                 setTimeout(() => {
-                    done.parentElement.remove();
-                }, 800);
+                    let tasks = (JSON.parse(localStorage.getItem("tasksInStorage")));
+                    tasks.splice(checkbox.id, 1);
+                    this.checklistStore = tasks;
+                    localStorage.setItem("tasksInStorage", JSON.stringify(this.checklistStore));
+                    //console.log((document.getElementById).length)
+                    while (document.getElementById("todo").childNodes.length) {
+                        document.getElementById("todo").childNodes[0].remove();
+                    }
+                    this.getTaskFromStorage();
+                }, 500);
             });
 
             let oneTask = TaskFromStorage[i].taskName;
-            fieldWithTasks.appendChild(span);
-            li.textContent = oneTask;
-            li.style.fontSize = "25px";
-            li.style.fontFamily = "Patrick Hand";
-            span.appendChild(li);
-            span.appendChild(done);
+            fieldWithTasks.appendChild(taskSpan);
+            list.textContent = oneTask;
+            list.style.fontSize = "25px";
+            list.style.fontFamily = "Patrick Hand";
+            taskSpan.appendChild(list);
+            taskSpan.appendChild(checkbox);
         }
     }
 }

@@ -25,8 +25,8 @@ main {
 h1 {
     font-family: 'Nanum Pen Script', cursive;
     margin: 10px;
-    color: rgb(0, 0, 182);
-    font-size: 58px;
+    color: rgb(0, 0, 117);
+    font-size: 72px;
 }
 
 form {
@@ -38,26 +38,26 @@ form {
 }
 
 #input {
-    width: 150px;
-    height: 30px;
+    width: 200px;
+    height: 45px;
     border-radius: 5px;
-    border: solid;
+    border: 1px solid;
 }
 
 .submit {
     background-color: rgb(0, 0, 182);
     color: aliceblue;
-    width: 150px;
-    height: 30px;
+    width: 200px;
+    height: 45px;
     border: none;
     border-radius: 5px;
-    font-size: smaller;
+    font-size: 16px;
 }
 
-.span {
+.taskSpan {
     margin-top: 10px;
     padding: 5px;
-    width: 305px;
+    width: 405px;
     height: 30px;
     display: flex;
     flex-direction: row;
@@ -65,7 +65,7 @@ form {
     align-items: center;
 }
 
-.span > input {
+.taskSpan > input {
     width: 20px;
     height: 20px;
 }

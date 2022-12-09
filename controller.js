@@ -4,7 +4,9 @@ const fieldWithTasks = document.getElementById("todo");
 
 let checklist = new Checklist();
 
-submit.onclick = function() {
+submit.onclick = function(e) {
     checklist.makeNewTaskAndSave(input.value);
     checklist.getTaskFromStorage();
 }
+
+input.focus();
